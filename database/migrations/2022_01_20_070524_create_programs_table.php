@@ -15,7 +15,9 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('program_name');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->enum('status', ['draf', 'active', 'disabled']);
             $table->timestamps();
         });
     }

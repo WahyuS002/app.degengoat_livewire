@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\VoteProgram;
 
 use Illuminate\Support\Collection;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class CreateVoteProgram extends Component
+class Create extends Component
 {
     use WithFileUploads;
 
@@ -31,7 +31,7 @@ class CreateVoteProgram extends Component
 
     public function render()
     {
-        return view('livewire.create-vote-program');
+        return view('livewire.vote-program.create');
     }
 
     private function resetInputFields(){

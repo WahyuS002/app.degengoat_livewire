@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('vote.index')" :active="request()->routeIs('vote.index') || request()->routeIs('vote.create')">
                         {{ __('Vote') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('shuffle.index')" :active="request()->routeIs('shuffle.index')">
+                        {{ __('Shuffle') }}
+                    </x-nav-link>
                 </div>
             </div>
 

@@ -1,3 +1,3 @@
 <x-app-layout>
-    <livewire:create-vote-program>
+    <livewire:vote-program.create>
 </x-app-layout>

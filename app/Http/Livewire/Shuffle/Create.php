@@ -7,12 +7,13 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $title, $price, $started_at, $ended_at;
+    public $title, $price, $total_winners_amount, $started_at, $ended_at;
     public $open_modal = false;
 
     protected $rules = [
         'title' => 'required|min:6',
-        'price' => 'required',
+        'price' => 'required|numeric',
+        'total_winners_amount' => 'required|numeric',
         'started_at' => 'required',
         'ended_at' => 'required',
     ];
@@ -48,8 +49,9 @@ class Create extends Component
         $this->interactWithModal(false);
         $this->dispatchBrowserEvent('alert',[
             'type'=>'success',
-            'message'=>"Category Created Successfully!!"
+            'message'=>"Shuffle Created Successfully!!"
         ]);
+        $this->emit('shuffleAdded');
         $this->resetInputFields();
     }
 }

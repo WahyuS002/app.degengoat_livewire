@@ -11,26 +11,33 @@
             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                 <form wire:submit.prevent="store">
                     <div class="bg-white px-4 pb-4 sm:p-6 sm:pb-4">
-                        <h3 class="text-lg leading-6 font-medium text-gray-900 text-center" id="modal-title">
+                        <h3 class="text-lg leading-6 font-semibold text-gray-900 text-center" id="modal-title">
                             Create a New Shuffle
                         </h3>
-                        <div class="mt-4">
+                        <div class="mt-8">
                             <div class="grid grid-cols-8 gap-4">
-                                <div class="col-span-5">
+                                <div class="col-span-4">
                                     <x-label for="title" :value="__('Title')" />
                                     <x-input id="title" class="block mt-1 w-full" type="text" required placeholder="ex. Degen Goat Shuffle #1" wire:model="title" />
                                     @error('title')
                                     <span class="text-sm text-red-400">{{ $message }}</span>
                                     @enderror
                                 </div>
-                                <div class="col-span-3 relative">
+                                <div class="col-span-2">
+                                    <x-label for="total_winners_amount" :value="__('Winners')" />
+                                    <x-input id="total_winners_amount" class="block mt-1 w-full" type="number" required wire:model="total_winners_amount" />
+                                    @error('total_winners_amount')
+                                    <span class="text-sm text-red-400">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="col-span-2 relative">
                                     <span class="absolute inset-y-0 left-0 top-6 flex items-center pl-2">
                                         <span class="p-1 focus:outline-none focus:shadow-outline">
                                             <svg class="h-4 w-4" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113 113.4"><polygon points="19.6 113.4 36 85 52.4 56.7 68.7 28.3 71.4 23.8 72.6 28.3 77.6 47 72 56.7 55.6 85 39.3 113.4 58.9 113.4 75.3 85 83.8 70.3 87.8 85 95.4 113.4 113 113.4 105.4 85 97.8 56.7 95.8 49.4 108 28.3 90.2 28.3 89.6 26.2 83.4 3 82.6 0 65.5 0 65.1 0.6 49.1 28.3 32.7 56.7 16.4 85 0 113.4 19.6 113.4"/></svg>
                                         </span>
                                     </span>
                                     <x-label for="price" :value="__('Price')" />
-                                    <x-input id="price" class="block mt-1 w-full pl-10" type="text" required wire:model="price" />
+                                    <x-input id="price" class="block mt-1 w-full pl-10" type="number" required wire:model="price" />
                                     @error('price')
                                     <span class="text-sm text-red-400">{{ $message }}</span>
                                     @enderror

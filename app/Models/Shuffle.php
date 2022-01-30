@@ -9,10 +9,10 @@ class Shuffle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'price', 'started_at', 'ended_at'];
+    protected $fillable = ['title', 'price', 'total_winners_amount', 'status', 'started_at', 'ended_at'];
 
-    public function shuffleParticipations()
+    public function shuffleParticipants()
     {
-         return $this->hasMany(ShuffleParticipation::class);
+         return $this->hasMany(ShuffleParticipant::class);
     }
 }

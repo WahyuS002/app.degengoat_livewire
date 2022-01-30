@@ -17,7 +17,7 @@ class CreateProgramsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->enum('status', ['draf', 'active', 'disabled']);
+            $table->enum('status', ['draf', 'closed', 'opened']);
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     DashboardContoller,
+    NotificationController,
     ShuffleController,
     VoteController
  };
@@ -18,6 +19,7 @@ Route::group(['middleware' => 'auth'] , function () {
 
     Route::get('shuffle-export-winners/{shuffle}', [ShuffleController::class, 'exportWinners'])->name('shuffle.export_winners');
     Route::resource('shuffle', ShuffleController::class);
+    Route::resource('notification', NotificationController::class);
 });
 
 require __DIR__.'/auth.php';

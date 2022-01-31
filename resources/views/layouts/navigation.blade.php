@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('shuffle.index')" :active="request()->routeIs('shuffle.index')">
                         {{ __('Shuffle') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('notification.index')" :active="request()->routeIs('notification.index')">
+                        {{ __('Notification') }}
+                    </x-nav-link>
                 </div>
             </div>
 

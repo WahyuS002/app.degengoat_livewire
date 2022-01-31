@@ -11,7 +11,7 @@ class ShuffleController extends Controller
 {
     public function index()
     {
-        return view('shuffle.index');
+        return view('pages.shuffle.index');
     }
 
     public function create()

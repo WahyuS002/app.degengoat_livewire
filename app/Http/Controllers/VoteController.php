@@ -8,12 +8,12 @@ class VoteController extends Controller
 {
     public function index()
     {
-        return view('vote.index');
+        return view('pages.vote.index');
     }
 
     public function create()
     {
-        return view('vote.create');
+        return view('pages.vote.create');
     }
 
     public function store(Request $request)

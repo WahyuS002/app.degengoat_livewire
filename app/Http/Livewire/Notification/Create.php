@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Notification;
 
 use App\Models\Notification;
-use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class Create extends Component
+class Create extends ModalComponent
 {
     public $content, $started_at, $ended_at;
-    public $open_modal;
 
     protected $rules = [
         'content' => 'required',
@@ -19,11 +18,6 @@ class Create extends Component
     public function render()
     {
         return view('livewire.notification.create');
-    }
-
-    public function interactWithModal($action)
-    {
-         $this->open_modal = $action;
     }
 
     public function updated($propertyName)
@@ -43,7 +37,7 @@ class Create extends Component
         $validatedData = $this->validate();
 
         Notification::create($validatedData);
-        $this->interactWithModal(false);
+        $this->closeModal();
         $this->dispatchBrowserEvent('alert',[
             'type'=>'success',
             'message'=>"Notification Created Successfully!!"

@@ -1,7 +1,8 @@
 <x-app-layout>
 
     @section('custom_styles')
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="{{ asset('vendor/medium_editor/css/medium-editor.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/medium_editor/css/themes/default.min.css') }}">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
     @endsection
 
@@ -10,21 +11,16 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Vote') }}
         </h2>
-        <livewire:notification.create>
+        <x-button onclick="Livewire.emit('openModal', 'notification.create')">
+            Create a new Notification
+        </x-button>
     </div>
     @endsection
 
     <livewire:notification.table>
 
-    @section('custom_scripts')
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-        <script>
-            flatpickr(".date-input", {
-                enableTime: true,
-                minDate: 'today',
-                dateFormat: "Y-m-d H:i",
-            });
-        </script>
+    @section('name')
+    <script src="{{ asset('vendor/medium_editor/js/medium-editor.min.js') }}"></script>
     @endsection
 
 </x-app-layout>

@@ -19,9 +19,9 @@ class Delete extends ModalComponent
          $this->notification = $notification;
     }
 
-    public function destroy(Notification $notification)
+    public function destroy()
     {
-        $notification->delete();
+        $this->notification->delete();
         $this->closeModal();
         $this->dispatchBrowserEvent('alert',[
             'type'=>'success',

@@ -121,7 +121,7 @@
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <div class="bg-gray-100 inline-block px-5 py-1 rounded-md font-semibold">
-                                    10
+                                    {{ $shuffle->total_winners_amount }}
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

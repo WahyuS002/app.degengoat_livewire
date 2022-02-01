@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Shuffle;
 
 use App\Models\Shuffle;
-use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class Create extends Component
+class Create extends ModalComponent
 {
     public $title, $price, $total_winners_amount, $started_at, $ended_at;
-    public $open_modal = false;
 
     protected $rules = [
         'title' => 'required|min:6',
@@ -17,11 +16,6 @@ class Create extends Component
         'started_at' => 'required',
         'ended_at' => 'required',
     ];
-
-    public function interactWithModal($action)
-    {
-         $this->open_modal = $action;
-    }
 
     public function render()
     {
@@ -46,7 +40,7 @@ class Create extends Component
         $validatedData = $this->validate();
 
         Shuffle::create($validatedData);
-        $this->interactWithModal(false);
+        $this->closeModal();
         $this->dispatchBrowserEvent('alert',[
             'type'=>'success',
             'message'=>"Shuffle Created Successfully!!"

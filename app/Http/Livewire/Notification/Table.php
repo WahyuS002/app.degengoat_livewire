@@ -10,7 +10,10 @@ class Table extends Component
     public $non_active_notifications;
     public $active_notification;
 
-    protected $listeners = ['notificationAdded' => 'refreshData'];
+    protected $listeners = [
+        'notificationAdded' => 'refreshData',
+        'notificationUpdated' => 'refreshData'
+    ];
 
     public function render()
     {

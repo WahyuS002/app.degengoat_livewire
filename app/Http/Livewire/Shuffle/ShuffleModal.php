@@ -52,7 +52,7 @@ class ShuffleModal extends Component
             'type'=>'success',
             'message'=>"Data has been shuffled!!"
         ]);
-        $this->emit('shuffledData');
+        $this->emit('refreshData');
     }
 
     public function shuffleData()

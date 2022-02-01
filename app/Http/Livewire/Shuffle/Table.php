@@ -10,8 +10,7 @@ class Table extends Component
     public $shuffles;
 
     protected $listeners = [
-        'shuffleAdded' => 'refreshNewData',
-        'shuffledData' => 'refreshNewData'
+        'refreshData' => 'refreshData',
     ];
 
     public function mount()
@@ -19,7 +18,7 @@ class Table extends Component
         $this->shuffles = Shuffle::withCount('shuffleParticipants')->latest()->get();
     }
 
-    public function refreshNewData()
+    public function refreshData()
     {
         $this->shuffles = Shuffle::withCount('shuffleParticipants')->latest()->get();
     }

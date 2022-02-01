@@ -42,7 +42,7 @@ class Create extends ModalComponent
             'type'=>'success',
             'message'=>"Notification Created Successfully!!"
         ]);
-        $this->emit('notificationAdded');
+        $this->emit('refreshData');
         $this->resetInputFields();
     }
 }

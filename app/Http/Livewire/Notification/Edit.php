@@ -43,6 +43,6 @@ class Edit extends ModalComponent
             'type'=>'success',
             'message'=>"Notification Updated Successfully!!"
         ]);
-        $this->emit('notificationUpdated');
+        $this->emit('refreshData');
     }
 }

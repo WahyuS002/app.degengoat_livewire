@@ -45,7 +45,7 @@ class Create extends ModalComponent
             'type'=>'success',
             'message'=>"Shuffle Created Successfully!!"
         ]);
-        $this->emit('shuffleAdded');
+        $this->emit('refreshData');
         $this->resetInputFields();
     }
 }

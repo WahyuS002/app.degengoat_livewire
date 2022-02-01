@@ -19,8 +19,4 @@
 
     <livewire:notification.table>
 
-    @section('name')
-    <script src="{{ asset('vendor/medium_editor/js/medium-editor.min.js') }}"></script>
-    @endsection
-
 </x-app-layout>

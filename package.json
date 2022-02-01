@@ -21,6 +21,7 @@
         "tailwindcss": "^3.0.0"
     },
     "dependencies": {
-        "flatpickr": "^4.6.9"
+        "flatpickr": "^4.6.9",
+        "medium-editor": "^5.23.3"
     }
 }

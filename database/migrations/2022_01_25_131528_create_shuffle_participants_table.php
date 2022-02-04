@@ -16,9 +16,11 @@ class CreateShuffleParticipantsTable extends Migration
         Schema::create('shuffle_participants', function (Blueprint $table) {
             $table->id();
             $table->foreignId('shuffle_id')->constrained();
+            $table->integer('position');
             $table->string('discord_username');
             $table->string('twitter_username');
             $table->string('wallet_address');
+            $table->string('mac_address');
             $table->ipAddress('ip_address');
             $table->boolean('is_winner')->nullable();
             $table->timestamps();

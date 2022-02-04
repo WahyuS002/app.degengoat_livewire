@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\ShuffleParticipant;
+use App\Observers\ShuffleParticipantObserver;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        ShuffleParticipant::observe(ShuffleParticipantObserver::class);
+
         Response::macro('success', function($data) {
             return response()->json([
                 'success' => true,

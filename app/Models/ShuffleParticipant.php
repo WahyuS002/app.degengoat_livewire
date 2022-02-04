@@ -9,7 +9,7 @@ class ShuffleParticipant extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['shuffle_id', 'discord_username', 'twitter_username', 'wallet_address', 'ip_address', 'is_winner'];
+    protected $fillable = ['shuffle_id', 'position', 'discord_username', 'twitter_username', 'wallet_address', 'mac_address', 'ip_address', 'is_winner'];
 
     public function shuffle()
     {

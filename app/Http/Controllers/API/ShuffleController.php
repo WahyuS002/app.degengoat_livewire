@@ -3,16 +3,32 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ShuffleResource;
+use App\Http\Resources\{
+    ShuffleCollection, ShuffleResource
+};
 use App\Models\Shuffle;
 
 class ShuffleController extends Controller
 {
-    public function getActiveShuffle()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $data = Shuffle::where('status', 'opened')->first();
-        return $data
-            ?  response()->success($data)
-            :  response()->error('Shuffle data not found', 404);
+        $shuffles = Shuffle::latest()->get();
+        return response()->success(ShuffleResource::collection($shuffles));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Shuffle $shuffle)
+    {
+        return response()->success(new ShuffleResource($shuffle));
     }
 }

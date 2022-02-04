@@ -34,7 +34,7 @@ class Table extends Component
              'status' => $status
          ]);
 
-         $this->refreshNewData();
+         $this->refreshData();
 
          $this->dispatchBrowserEvent('alert',[
             'type'=>'success',

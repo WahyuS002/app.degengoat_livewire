@@ -1,7 +1,7 @@
 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" x-data="{ open: @entangle('open_modal') }">
     @if (\Carbon\Carbon::now() >= $shuffle->ended_at)
         @if ($shuffle->status == 'shuffled')
-        <a href="{{ route('shuffle.export_winners', $shuffle->id) }}" class="hover:text-green-500 cursor-pointer transition-all duration-300 ease-in-out">
+        <a href="{{ route('shuffle.export_winners', $shuffle->slug) }}" class="hover:text-green-500 cursor-pointer transition-all duration-300 ease-in-out">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
             </svg>

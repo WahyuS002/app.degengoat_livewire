@@ -59,8 +59,12 @@
                     title:message
                 })
             })
-        </script>
 
+            window.addEventListener('testing', () => {
+                alert('testing')
+            })
+        </script>
+        @include('sweetalert::alert')
         @yield('custom_scripts')
     </body>
 </html>

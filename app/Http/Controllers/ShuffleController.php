@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ShuffleWinnersExport;
+use App\Http\Requests\StoreShuffleRequest;
 use App\Models\Shuffle;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -16,12 +17,16 @@ class ShuffleController extends Controller
 
     public function create()
     {
-        //
+         return view('pages.shuffle.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreShuffleRequest $request)
     {
-        //
+        $shuffle = $request->validated();
+        Shuffle::create($shuffle);
+
+        toast('Your Shuffle has been created!','success');
+        return redirect()->route('shuffle.index');
     }
 
     public function show($id)

@@ -4,9 +4,11 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Shuffle') }}
         </h2>
-        <x-button onclick="Livewire.emit('openModal', 'shuffle.create')">
-            Create a new Shuffle
-        </x-button>
+        <a href="{{ route('shuffle.create') }}">
+            <x-button>
+                Create a new Shuffle
+            </x-button>
+        </a>
     </div>
     @endsection
 

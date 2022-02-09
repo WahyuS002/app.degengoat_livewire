@@ -6,7 +6,7 @@ use App\Models\Shuffle;
 use Carbon\Carbon;
 use LivewireUI\Modal\ModalComponent;
 
-class Create extends ModalComponent
+class CreateModal extends ModalComponent
 {
     public $title, $price, $total_winners_amount, $started_at, $ended_at;
 
@@ -20,7 +20,7 @@ class Create extends ModalComponent
 
     public function render()
     {
-        return view('livewire.shuffle.create');
+        return view('livewire.shuffle.create-modal');
     }
 
     public function updated($propertyName)
@@ -41,7 +41,6 @@ class Create extends ModalComponent
         $validatedData = $this->validate();
 
         Shuffle::create($validatedData);
-        $this->closeModal();
         $this->dispatchBrowserEvent('alert',[
             'type'=>'success',
             'message'=>"Shuffle Created Successfully!!"

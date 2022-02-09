@@ -69,7 +69,9 @@
                                         <td class="px-6 py-4 whitespace-nowrap w-1/3">
                                             <div class="flex flex-col">
                                                 <div class="font-semibold text-gray-900">{!! $active_notification->content !!}</div>
-                                                <div class="bg-red-500 text-white text-sm">This data was expired.</div>
+                                                <div class="inline-block">
+                                                    <div class="bg-red-400 text-white text-sm rounded-full inline-block px-3">This data was expired.</div>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap w-1/3">

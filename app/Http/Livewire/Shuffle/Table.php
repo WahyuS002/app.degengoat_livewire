@@ -35,10 +35,5 @@ class Table extends Component
          ]);
 
          $this->refreshData();
-
-         $this->dispatchBrowserEvent('alert',[
-            'type'=>'success',
-            'message'=>"Status Changed Successfully!!"
-        ]);
     }
 }

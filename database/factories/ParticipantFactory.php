@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class ShuffleParticipantFactory extends Factory
+class ParticipantFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,11 +15,11 @@ class ShuffleParticipantFactory extends Factory
     public function definition()
     {
         return [
-            'shuffle_id' => 1,
+            'wallet_address' => Str::random(18),
             'discord_username' => $this->faker->name(),
             'twitter_username' => $this->faker->name(),
-            'wallet_address' => Str::random(18), // password
             'ip_address' => mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255),
+            'mac_address' => implode(':', str_split(substr(md5(mt_rand()), 0, 12), 2))
         ];
     }
 }

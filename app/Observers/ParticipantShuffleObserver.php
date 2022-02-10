@@ -2,9 +2,9 @@
 
 namespace App\Observers;
 
-use App\Models\ShuffleParticipant as Participant;
+use App\Models\ParticipantShuffle as Participant;
 
-class ShuffleParticipantObserver
+class ParticipantShuffleObserver
 {
     public function creating(Participant $participant)
     {

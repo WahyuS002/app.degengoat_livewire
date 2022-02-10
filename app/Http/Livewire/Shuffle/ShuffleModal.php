@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Shuffle;
 
+use App\Models\ParticipantShuffle;
 use App\Models\Shuffle;
 use App\Models\ShuffleParticipant;
 use Illuminate\Support\Facades\DB;
@@ -10,7 +11,6 @@ use Livewire\Component;
 class ShuffleModal extends Component
 {
     public $shuffle;
-    public $winner_amount;
     public $open_modal = false;
 
     public function render()
@@ -31,7 +31,8 @@ class ShuffleModal extends Component
     public function makeEveryoneWinners()
     {
         DB::transaction(function() {
-            $randomized_data = $this->shuffle->shuffleParticipants()->get()->random($this->shuffle->shuffleParticipants->count());
+            $shuffle_id = $this->shuffle->id;
+            $randomized_data = ParticipantShuffle::where('shuffle_id', $shuffle_id)->get();
 
             $this->shuffled($randomized_data);
         });
@@ -57,18 +58,11 @@ class ShuffleModal extends Component
 
     public function shuffleData()
     {
-        if ($this->winner_amount > $this->shuffle->shuffleParticipants->count()) {
-            $this->dispatchBrowserEvent('alert',[
-                'type'=>'error',
-                'message'=>"Winner amount greater than participants."
-            ]);
-        } else {
-            DB::transaction(function () {
-                $randomized_data = ShuffleParticipant::where('shuffle_id', $this->shuffle->id)->get()
-                                    ->random($this->winner_amount);
+        DB::transaction(function () {
+            $randomized_data = ParticipantShuffle::where('shuffle_id', $this->shuffle->id)->get()
+                                ->random($this->shuffle->total_winners_amount);
 
-                $this->shuffled($randomized_data);
-            });
-        }
+            $this->shuffled($randomized_data);
+        });
     }
 }

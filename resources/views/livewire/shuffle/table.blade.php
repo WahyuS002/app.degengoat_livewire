@@ -102,7 +102,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 <div class="bg-gray-100 inline-block px-5 py-1 rounded-md font-semibold">
-                                    {{ $shuffle->shuffle_participants_count }} participants
+                                    {{ $shuffle->participants_count }} participants
                                 </div>
                             </td>
                             <td class="px-3 py-4 whitespace-nowrap text-sm text-gray-500">

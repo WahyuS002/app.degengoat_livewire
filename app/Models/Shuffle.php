@@ -26,13 +26,8 @@ class Shuffle extends Model
           return 'slug';
     }
 
-    public function shuffleParticipants()
+    public function participants()
     {
-         return $this->hasMany(ShuffleParticipant::class);
-    }
-
-    public function countShuffleParticipants()
-    {
-         return $this->shuffleParticipants()->count();
+         return $this->belongsToMany(Participant::class);
     }
 }

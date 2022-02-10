@@ -20,7 +20,7 @@ class ShuffleResource extends JsonResource
             'slug' => $this->slug,
             'price' => $this->price,
             'total_winners_amount' => $this->total_winners_amount,
-            'total_participants' => $this->countShuffleParticipants(),
+            'total_participants' => $this->participants()->count(),
             'status' => $this->status,
             'started_at' => $this->started_at,
             'ended_at' => $this->ended_at,

@@ -22,21 +22,21 @@ class ShuffleWinnersExport implements FromCollection, WithHeadings, ShouldAutoSi
     */
     public function collection()
     {
-        return Shuffle::find($this->shuffle_id)->shuffleParticipants()->winners()->get([
-            'discord_username', 'twitter_username', 'wallet_address', 'ip_address'
+        return Shuffle::find($this->shuffle_id)->participants()->wherePivot('is_winner', true)->get([
+            'discord_username', 'twitter_username', 'wallet_address'
         ]);
     }
 
     public function headings(): array
     {
-        return ["Discord", "Twitter", "Wallet Address", "IP Address"];
+        return ["Discord", "Twitter", "Wallet Address"];
     }
 
     public function registerEvents(): array
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $cellRange = 'A1:D1'; // All headers
+                $cellRange = 'A1:C1'; // All headers
                 $event->sheet->getStyle($cellRange)->getFill()
                     ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
                     ->getStartColor()->setARGB('FFFFFF00');

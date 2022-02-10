@@ -15,12 +15,12 @@ class Table extends Component
 
     public function mount()
     {
-        $this->shuffles = Shuffle::withCount('shuffleParticipants')->latest()->get();
+        $this->shuffles = Shuffle::withCount('participants')->latest()->get();
     }
 
     public function refreshData()
     {
-        $this->shuffles = Shuffle::withCount('shuffleParticipants')->latest()->get();
+        $this->shuffles = Shuffle::withCount('participants')->latest()->get();
     }
 
     public function render()

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShuffleParticipantsTable extends Migration
+class CreateParticipantShuffleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateShuffleParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('shuffle_participants', function (Blueprint $table) {
+        Schema::create('participant_shuffle', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('participant_id')->constrained();
             $table->foreignId('shuffle_id')->constrained();
             $table->integer('position');
-            $table->string('discord_username');
-            $table->string('twitter_username');
-            $table->string('wallet_address');
-            $table->string('mac_address');
-            $table->ipAddress('ip_address');
             $table->boolean('is_winner')->nullable();
             $table->timestamps();
         });
@@ -34,6 +30,6 @@ class CreateShuffleParticipantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('shuffle_participants');
+        Schema::dropIfExists('participant_shuffle');
     }
 }

@@ -11,5 +11,5 @@ class ParticipantShuffle extends Pivot
 
     protected $table = 'participant_shuffle';
 
-    protected $fillable = ['participant_id', 'shuffle_id', 'position', 'is_winner'];
+    protected $fillable = ['participant_id', 'shuffle_id', 'discord_username', 'twitter_username', 'position', 'is_winner'];
 }

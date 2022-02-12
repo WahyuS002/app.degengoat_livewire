@@ -19,7 +19,6 @@ class ParticipantFactory extends Factory
             'discord_username' => $this->faker->name(),
             'twitter_username' => $this->faker->name(),
             'ip_address' => mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255),
-            'mac_address' => implode(':', str_split(substr(md5(mt_rand()), 0, 12), 2))
         ];
     }
 }

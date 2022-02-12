@@ -3,8 +3,6 @@
 namespace App\Http\Livewire\Shuffle;
 
 use App\Models\ParticipantShuffle;
-use App\Models\Shuffle;
-use App\Models\ShuffleParticipant;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 

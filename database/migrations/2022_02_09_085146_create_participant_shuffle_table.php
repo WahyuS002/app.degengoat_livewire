@@ -17,6 +17,8 @@ class CreateParticipantShuffleTable extends Migration
             $table->id();
             $table->foreignId('participant_id')->constrained();
             $table->foreignId('shuffle_id')->constrained();
+            $table->string('discord_username');
+            $table->string('twitter_username');
             $table->integer('position');
             $table->boolean('is_winner')->nullable();
             $table->timestamps();

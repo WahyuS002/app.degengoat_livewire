@@ -19,7 +19,6 @@ class CreateParticipantsTable extends Migration
             $table->string('discord_username');
             $table->string('twitter_username');
             $table->ipAddress('ip_address');
-            $table->string('mac_address');
             $table->timestamps();
         });
     }
